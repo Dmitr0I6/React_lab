@@ -1,7 +1,10 @@
 body{
   font-family: 'DM Sans';
 }
-
+.app.dark{
+  background-color: #717171;
+  color: #fff;
+}
 /*header block*/
 .header{
   width: 100%;
@@ -10,6 +13,22 @@ body{
   width: 1248px;
   margin: 0 auto;
 }
+
+.cart_cont{
+  width: 1248px;
+  height: 400px;
+  margin: 0 auto;
+  background-color: #bbb;
+  display: flex;
+  justify-content: center;
+}
+.goods{
+  height: 300px;
+  width: 300px;
+  background-color: goldenrod;
+  margin: auto 30px;
+}
+
 .header_inner{
   width: 100%;
   height: 42px;
@@ -17,7 +36,7 @@ body{
   justify-content: space-between;
   align-items: center;
   margin-bottom: 16px;
-  margin-top: 64px;
+  padding-top: 64px;
   position: relative;
 }
 .logo{

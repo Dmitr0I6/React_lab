@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react'
+import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import './App.css'
-import Header from './UI/Header'
-import Cards from './UI/Card'
-import Slider from './UI/Slider'
-import Footer from './UI/Footer'
+import Home from './UI/Home'
+import NotFound from './UI/NotFound';
+import Blog from './UI/Blog';
+import Cart from './UI/Cart';
+import { ThemeProvider } from './Context/ThemeContext';
+
 
 function App() {
   const [cartCount, setCartCount] = useState(0);
@@ -15,12 +18,17 @@ function App() {
   },[cartCount]);
 
   return (
-  <>
-      <Header cartCount={cartCount}/>
-      <Slider/>
-      <Cards setCartCount = {setCartCount}/>
-      <Footer/>
-  </>
+    <ThemeProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element = {<Home cartCount={cartCount} setCartCount={setCartCount}/>}/>
+          <Route path="/Blog" element = {<Blog cartCount={cartCount}/>}/>
+          <Route path="/Cart" element = {<Cart cartCount={cartCount} setCartCount={setCartCount}/>}/>
+          <Route path = "*" element = {<NotFound/>}/>
+
+        </Routes>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
